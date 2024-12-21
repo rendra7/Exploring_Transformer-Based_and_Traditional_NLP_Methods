@@ -12,8 +12,8 @@ def load_model(url):
     model = pickle.load(io.BytesIO(response.content))
     return model
 
-bert_model_url = "https://huggingface.co/Rendra7/Model_BERT/blob/main/model_BERT.pkl"
-svm_model_url = "https://huggingface.co/Rendra7/Model_BERT/blob/main/svm_model.pkl"
+bert_model_url = "https://huggingface.co/Rendra7/Model_BERT/resolve/main/model_BERT.pkl"
+svm_model_url = "https://huggingface.co/Rendra7/Model_BERT/resolve/main/svm_model.pkl"
 
 bert_model = load_model(bert_model_url)
 svm_model = load_model(svm_model_url)
