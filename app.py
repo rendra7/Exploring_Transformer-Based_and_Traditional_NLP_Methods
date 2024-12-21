@@ -26,8 +26,8 @@ def load_model(url, model_type="bert"):
         return None, None
 
 # URL to the Hugging Face models
-bert_model_url = "https://huggingface.co/Rendra7/Model_BERT/resolve/main/model_BERT.pkl"
-svm_model_url = "https://huggingface.co/Rendra7/Model_BERT/resolve/main/svm_model.pkl"
+bert_model_url = "https://huggingface.co/Rendra7/Model_BERT/blob/main/model_BERT.pkl"
+svm_model_url = "https://huggingface.co/Rendra7/Model_BERT/blob/main/svm_model.pkl"
 
 # Load the models
 bert_model, bert_tokenizer = load_model(bert_model_url, model_type="bert")
