@@ -1,4 +1,9 @@
-import streamlit as st  # Ensure Streamlit is imported
+import streamlit as st
+
+# Set page configuration (must be the first Streamlit command)
+st.set_page_config(page_title="Sentiment Analysis App", layout="wide")
+
+# Import other required libraries
 import pickle
 import pandas as pd
 import requests
@@ -26,8 +31,8 @@ def load_model(url, model_type="bert"):
         return None, None
 
 # URL to the Hugging Face models
-bert_model_url = "https://huggingface.co/Rendra7/Model_BERT/blob/main/model_BERT.pkl"
-svm_model_url = "https://huggingface.co/Rendra7/Model_BERT/blob/main/svm_model.pkl"
+bert_model_url = "https://huggingface.co/Rendra7/Model_BERT/resolve/main/model_BERT"
+svm_model_url = "https://huggingface.co/Rendra7/Model_BERT/resolve/main/svm_model.pkl"
 
 # Load the models
 bert_model, bert_tokenizer = load_model(bert_model_url, model_type="bert")
@@ -51,7 +56,6 @@ def classify_with_svm(text):
     return svm_model.predict(vectorized_text)[0]
 
 # Streamlit UI
-st.set_page_config(page_title="Sentiment Analysis App", layout="wide")
 st.title("Sentiment Analysis Application")
 
 # Sidebar menu
