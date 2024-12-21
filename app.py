@@ -1,100 +1,114 @@
 import streamlit as st
 import pickle
-import pandas as pd
 import requests
 import io
+from torch import nn
+from transformers import BertModel
+import torch
 
-# Load models from Hugging Face
-@st.cache_resource
+# Define the BertClassifier class
+class BertClassifier(nn.Module):
+    def __init__(self, dropout=0.5):
+        super(BertClassifier, self).__init__()
+        self.bert = BertModel.from_pretrained('bert-base-cased')
+        self.dropout = nn.Dropout(dropout)
+        self.linear = nn.Linear(768, 2)
+        self.relu = nn.ReLU()
+
+    def forward(self, input_id, mask):
+        _, pooled_output = self.bert(input_ids=input_id, attention_mask=mask, return_dict=False)
+        dropout_output = self.dropout(pooled_output)
+        linear_output = self.linear(dropout_output)
+        final_layer = self.relu(linear_output)
+        return final_layer
+
+# Function to load model from URL
 def load_model(url):
     response = requests.get(url)
     response.raise_for_status()
     model = pickle.load(io.BytesIO(response.content))
     return model
 
+# Load models
 bert_model_url = "https://huggingface.co/Rendra7/Model_BERT/resolve/main/model_BERT.pkl"
 svm_model_url = "https://huggingface.co/Rendra7/Model_BERT/resolve/main/svm_model.pkl"
 
-bert_model = load_model(bert_model_url)
-svm_model = load_model(svm_model_url)
+@st.cache_resource
+def load_bert_model():
+    return load_model(bert_model_url)
 
-history = []
+@st.cache_resource
+def load_svm_model():
+    return load_model(svm_model_url)
 
-# Function for sentiment classification
-def classify_with_bert(text):
-    # Dummy BERT classification for example
-    return bert_model.predict([text])[0]
+bert_model = load_bert_model()
+svm_model = load_svm_model()
 
-def classify_with_svm(text):
-    # Dummy SVM classification for example
-    return svm_model.predict([text])[0]
+# Helper function for BERT prediction
+def bert_predict(model, text):
+    tokenizer = BertModel.from_pretrained('bert-base-cased').tokenizer
+    inputs = tokenizer(text, return_tensors="pt", max_length=512, truncation=True, padding=True)
+    input_ids = inputs["input_ids"]
+    attention_mask = inputs["attention_mask"]
+    with torch.no_grad():
+        output = model(input_ids, attention_mask)
+    return torch.argmax(output, dim=1).item()
 
-# Streamlit UI
-st.set_page_config(page_title="Sentiment Analysis App", layout="wide")
-st.title("Sentiment Analysis Application")
+# Helper function for SVM prediction
+def svm_predict(model, text):
+    return model.predict([text])[0]
 
-# Sidebar menu
-menu = st.sidebar.radio("Menu", ["About This Application", "Sentiment Classification", "History"])
+# Initialize Streamlit App
+st.title("Sentiment Analysis with BERT and SVM")
+menu = ["About This Application", "Sentiment Analysis", "History"]
+choice = st.sidebar.selectbox("Menu", menu)
 
-if menu == "About This Application":
+if choice == "About This Application":
     st.header("About This Application")
     st.write("""
-    **Application Usage:**
-    1. Input a sentence in the 'Sentiment Classification' menu.
-    2. Click the 'Analyze' button to classify the sentiment using the BERT model.
-    3. Optionally, compare the result with the SVM (BoW) model by clicking 'Compare'.
-    4. Check the 'History' menu to view all previous classifications.
-
-    **Developer:**
-    RENDRA DWI PRASETYO
+    **Developed by:** Rendra Dwi Prasetyo
+    
+    **Description:**  
+    This application uses two models for sentiment analysis:
+    1. A fine-tuned BERT model.
+    2. A Support Vector Machine (SVM) model with Bag-of-Words (BoW) representation.
+    
+    **How to use:**  
+    - Navigate to the "Sentiment Analysis" menu.
+    - Input your sentence and analyze the sentiment using BERT.
+    - Optionally, compare the result with SVM by enabling the "Compare" option.
+    - The history of predictions will be displayed in the "History" menu.
     """)
 
-elif menu == "Sentiment Classification":
-    st.header("Sentiment Classification")
-
-    text_input = st.text_area("Enter a sentence for sentiment analysis:", "")
-
+elif choice == "Sentiment Analysis":
+    st.header("Sentiment Analysis")
+    text = st.text_area("Enter a sentence for sentiment analysis:")
+    compare = st.checkbox("Compare with SVM")
     if st.button("Analyze"):
-        if text_input.strip():
-            bert_result = classify_with_bert(text_input)
-            st.success(f"BERT Sentiment: {bert_result}")
+        if text:
+            bert_result = bert_predict(bert_model, text)
+            st.write(f"**BERT Sentiment:** {'Positive' if bert_result == 1 else 'Negative'}")
 
-            if st.button("Compare with SVM (BoW)"):
-                svm_result = classify_with_svm(text_input)
-                st.info(f"SVM (BoW) Sentiment: {svm_result}")
-
-                # Update history
-                history.append({
-                    "Text": text_input,
-                    "BERT Sentiment": bert_result,
-                    "SVM (BoW) Sentiment": svm_result
-                })
-            else:
-                # Update history without comparison
-                history.append({
-                    "Text": text_input,
-                    "BERT Sentiment": bert_result,
-                    "SVM (BoW) Sentiment": "None"
-                })
+            svm_result = None
+            if compare:
+                svm_result = svm_predict(svm_model, text)
+                st.write(f"**SVM Sentiment:** {'Positive' if svm_result == 1 else 'Negative'}")
+            
+            # Save to history
+            if "history" not in st.session_state:
+                st.session_state["history"] = []
+            st.session_state["history"].append({
+                "Text": text,
+                "BERT": "Positive" if bert_result == 1 else "Negative",
+                "SVM": "Positive" if svm_result == 1 else "Negative" if compare else "None"
+            })
         else:
-            st.warning("Please enter a sentence before analysis.")
+            st.warning("Please enter a sentence!")
 
-elif menu == "History":
-    st.header("Classification History")
-
-    if history:
-        df = pd.DataFrame(history)
-        st.dataframe(df, use_container_width=True)
-
-        st.markdown("### Summary")
-        st.write(f"Total analyses: {len(history)}")
-        bert_count = df["BERT Sentiment"].value_counts()
-        svm_count = df["SVM (BoW) Sentiment"].value_counts()
-
-        st.subheader("BERT Model Sentiment Distribution")
-        st.write(bert_count)
-
-        st.subheader("SVM (BoW) Model Sentiment Distribution")
-        st.write(svm_count)
+elif choice == "History":
+    st.header("History")
+    if "history" in st.session_state and st.session_state["history"]:
+        history_data = st.session_state["history"]
+        st.table(history_data)
     else:
-        st.info("No classification history yet.")
+        st.write("No history available.")
