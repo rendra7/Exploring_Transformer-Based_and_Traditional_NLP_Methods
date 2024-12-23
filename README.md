@@ -1,8 +1,4 @@
-## Project By : 
-Name : Rendra Dwi Prasetyo
-NIM  : 2602199960
 
----
 # Performance Comparison of Sentiment Analysis: BERT vs TF-IDF + SVM
 
 This project presents a comprehensive comparison of sentiment analysis approaches using two distinct methods:
@@ -17,8 +13,8 @@ The study evaluates the performance of these models on sentiment analysis tasks,
 - [Project Overview](#project-overview)
 - [Dataset](#dataset)
 - [Methodology](#methodology)
+- [Results](#Performance-Results)
 - [Results](#Analysis)
-- [Results](#Performance Results)
 - [Conclusion](#conclusion)
 
 ---
@@ -91,14 +87,19 @@ To strengthen the justification for the results I obtained, I tested with severa
 
 ## Conclusion 
 ### Results and Insights
-#### Strengths of BERT:
-- Captures context and nuances in text, making it more robust for complex statements.
-- Better suited for data with subtle sentiment cues.
-#### Strengths of TF-IDF + SVM:
-- Simpler to train.
-- Effective for datasets with clear and straightforward sentiment patterns.
+#### BERT:
+- Captures context and nuances in text, making it more robust for handling complex and subtle statements.
+- Better suited for datasets with subtle sentiment cues and intricate contextual relationships.
+#### TF-IDF + SVM:
+- Simpler to train and computationally less intensive.
+- Effective for datasets with clear and straightforward sentiment patterns, but may struggle with nuanced or complex examples.
 ### Overall Comparison:
-BERT outperforms traditional methods on tricky examples but requires more computational resources.
+**BERT** outperforms traditional methods like TF-IDF + SVM, especially on tricky examples where context and nuance matter. However, it requires more computational resources and may not always be the best choice for simpler datasets.
 
+---
+## Project By : 
+Name : Rendra Dwi Prasetyo
+
+NIM  : 2602199960
 
 
