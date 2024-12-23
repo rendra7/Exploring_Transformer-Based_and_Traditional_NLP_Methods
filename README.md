@@ -27,8 +27,9 @@ The study evaluates the performance of these models on sentiment analysis tasks,
 ### Key Features:
 - **BERT**: A transformer-based, bidirectional pretrained language model designed to understand context and semantic relationships in text by learning deep representations through tasks like Masked Language Modeling (MLM) and Next Sentence Prediction (NSP)
 - **TF-IDF + SVM**: A traditional machine learning pipeline where TF-IDF converts text into numerical vectors by weighting terms based on their frequency and importance across documents, and SVM classifies these vectors by finding an optimal hyperplane that separates different sentiment classes.
-- Comparison of both models on tricky examples to assess their handling of subtle contextual differences.
 - Preprocessing steps like tokenization, stopword removal, and lemmatization.
+- Comparison of both models on tricky examples to assess their handling of subtle contextual differences.
+
   
 ### Objectives:
 1. Compare the performance of **BERT** with **TF-IDF** + **SVM** on sentiment analysis tasks.
@@ -110,7 +111,7 @@ To strengthen the justification for the results I obtained, I tested with severa
 | This is a great product! | Positive | Positive |
 | I'm really great disappointed with this product. | Negative | Negative |
 | The service was amazing; I’m so satisfied and will definitely come back. | Positive | Positive |
-| The ticket prices are amazing—amazingly expensive. | Negative | Negative |
+| The ticket prices are amazing—amazingly expensive. | Negative | Positif |
 
 ### Key Difference in Example Prediction:
 - **BERT** successfully captures subtle contextual meanings, such as interpreting "amazingly expensive" as negative, showing its deeper understanding of text context.
