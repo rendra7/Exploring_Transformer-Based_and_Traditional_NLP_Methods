@@ -45,7 +45,8 @@ The dataset contains English-language text data labeled with binary sentiment.
 - **Total Features** : 5
 
 
-**After Reduction :**
+**After Preprocessing :**
+*Reduce some unimportant feature and for computational resource efficiency and data balance.
 - **Sample Size**: 160,000 entries.
 - **Features**:
   - `text`: User-generated text data.
