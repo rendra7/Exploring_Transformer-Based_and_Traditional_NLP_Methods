@@ -57,9 +57,9 @@ Source: [Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazan
 ---
 
 ## Methodology
-This methodology also serves as the step-by-step process I followed in the [notebook.ipynb]([https://github.com/rendra7/LLM-BERT/blob/main/Modelling_BERT_Rendra.ipynb](https://github.com/rendra7/Exploring_Transformer-Based_and_Traditional_NLP_Methods/blob/main/Notebook%20File%20-%20BERT%20%26%20SVM%20%2B%20TFIDF_Rendra%20Dwi%20Prasetyo_Project.ipynb)) file.
+This methodology also serves as the step-by-step process I followed in the [notebook.ipynb](https://github.com/rendra7/Exploring_Transformer-Based_and_Traditional_NLP_Methods/blob/main/Notebook%20File%20-%20BERT%20%26%20SVM%20%2B%20TFIDF_Rendra%20Dwi%20Prasetyo_Project.ipynb) file.
 ### I. **Import Dataset**
-[Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazanova/sentiment140)
+- Import using API from kaggle with dataset of : [Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazanova/sentiment140)
 ### II. **Exploration & Dataset Preparation** : 
     - Understanding data characteristics through visualization, descriptive statistics, and text analysis.
     - Dimensionality Data Reduction : reduce some unimportant feature and for computational resource efficiency and data balance.
