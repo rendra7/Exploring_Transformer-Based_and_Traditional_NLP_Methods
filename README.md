@@ -114,10 +114,6 @@ This methodology also serves as the step-by-step process I followed in the [note
 ##### **Evaluation**
     - Evaluation metrics : Accuracy, precision, recall, F1-Score
     - Testing & Analysis : Testing the classifier with new sentences for performance analysis.
-### IV. Analysis
-[Analysis Section](#Analysis)
-### V. Conclusion
-[Conclusion Section](#Conclusion)
 
 ---
 
@@ -127,11 +123,17 @@ This methodology also serves as the step-by-step process I followed in the [note
 | BERT           | 83%      | 83%       | 83%    | 83%      |
 | TF-IDF + SVM   | 76%      | 76%       | 76%    | 76%      |
 
-- The performance results based on the evaluation metrics (accuracy, precision, recall, F1-score) of **BERT are better overall**. This is in accordance with the theory that BERT's ability to analyze text more deeply by paying attention to contextual relationships gives it an edge over more traditional models like TF-IDF + SVM.
+- Accuracy: BERT shows a higher accuracy (83%) compared to TF-IDF + SVM (76%). This means that BERT is more accurate in classifying the overall data than TF-IDF + SVM. BERT is better at capturing the nuances and context in sentences, while TF-IDF + SVM might struggle with more complex cases.
 
+- Precision: Precision measures how well the model avoids false positives. Here, BERT also outperforms with a value of 83%, meaning that more of BERT's positive predictions are actually correct. TF-IDF + SVM has a lower precision, which could indicate that it makes more false positive predictions in certain cases.
+
+- Recall: Recall measures the model's ability to identify all relevant positive examples. BERT achieves a recall of 83%, which means BERT is better at identifying relevant positive examples than TF-IDF + SVM, which has a recall of 76%. This supports the claim that BERT is more sensitive to nuances in the data.
+
+- F1-Score: The F1-Score is the harmonic mean of precision and recall, providing a balanced view of the model's performance. BERT has a higher F1-Score (83%) than TF-IDF + SVM (76%), indicating that BERT is more balanced in terms of precision and recall and is better at handling imbalanced or more challenging classes.
+  
 ---
 ## Analysis
-To strengthen the justification for the results I obtained, I tested with several sample sentences for a deeper analysis. These examples help demonstrate how both models—BERT and TF-IDF + SVM—handle different types of text, particularly those with complex or nuanced sentiment.
+To strengthen the justification for the evaluation results, I tested several sample sentences for a deeper analysis. These examples help demonstrate how both models—BERT and TF-IDF + SVM—handle different types of text, particularly those with complex or nuanced sentiments.
 
 
 #### Result Predictions:
