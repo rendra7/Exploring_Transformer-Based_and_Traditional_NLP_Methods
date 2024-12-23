@@ -1,10 +1,9 @@
 
 # Performance Comparison of Sentiment Analysis: BERT vs TF-IDF + SVM
 
-#### Project By : 
-Name : Rendra Dwi Prasetyo
+#### Project By : Rendra Dwi Prasetyo
 
-
+.
 
 This project presents a comprehensive comparison of sentiment analysis approaches using two distinct methods:
 1. Large Language Model (LLM) approach with **BERT (Bidirectional Encoder Representations from Transformers)**.
