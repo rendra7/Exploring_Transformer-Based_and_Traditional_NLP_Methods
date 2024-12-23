@@ -74,7 +74,8 @@ This methodology also serves as the step-by-step process I followed in the [note
 ### II. **Exploration & Dataset Preparation** : 
     - Understanding data characteristics through visualization, descriptive statistics, and text analysis.
        + The target sentiment distribution is balanced
-   ![image](https://github.com/user-attachments/assets/5c6de5d1-722e-47b7-be27-480c956334dd)
+   ![image](https://github.com/user-attachments/assets/5c6de5d1-722e-47b7-be27-480c956334dd) width="50" height="100"
+   
        + The text length distribution is in a safe range (between 7-348 characters) with an average length of 74 characters 
        + Data sets are cleaned of null/missing values
     - Dimensionality Data Reduction : reduce some unimportant feature and for computational resource efficiency and data balance. 
