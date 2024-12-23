@@ -61,7 +61,7 @@ Libraries and Frameworks:
 The dataset contains English-language text data labeled with binary sentiment.
 
 - **Origin Size**: 1,600,000 entries
-- **Total Features** : 5
+- **Total Features** : 6
   
 Source: [Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazanova/sentiment140)
 
