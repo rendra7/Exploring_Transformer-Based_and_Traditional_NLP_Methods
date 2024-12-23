@@ -36,25 +36,28 @@
 This project leverages the following resources:
 
 **Development Environment**:
+1. **Google Colab**: The notebook was developed and executed using Google Colab, a cloud-based platform for Python programming.
+2. **Python Version**: Python 3.10.12 was used for all scripts and implementations.
 
-**Google Colab**: The notebook was developed and executed using Google Colab, a cloud-based platform for Python programming.
-**Python Version**: Python 3.10.12 was used for all scripts and implementations.
-Hardware:
-
-**GPU**: NVIDIA T4 Tensor Core GPU provided by Google Colab. This GPU accelerates training and inference tasks, especially for deep learning models like BERT.
+**Hardware:**
+1. **GPU**: NVIDIA T4 Tensor Core GPU provided by Google Colab. This GPU accelerates training and inference tasks, especially for deep learning models like BERT.
 Libraries and Frameworks:
-**System RAM** : 51.0 GB (maximum capacity)
-**VRAM** : 15.0 GB (maximum capacity)
-**Disk** : 235.7 GB (maximum capacity)
+2. **System RAM** : 51.0 GB (maximum capacity)
+3. **VRAM** : 15.0 GB (maximum capacity)
+4. **Disk** : 235.7 GB (maximum capacity)
 
-- **Transformers (Hugging Face)**: For fine-tuning the BERT model.
-- **scikit-learn**: For implementing traditional NLP methods, including TF-IDF and SVM.
-- **PyTorch**: To build and train the BERT classifier.
-- **Matplotlib & Seaborn**: For data visualization.
-- **NLTK**: For text preprocessing such as tokenization, stopword removal, and lemmatization.
-- 
+**Library & Tools**
+1. **Transformers (Hugging Face)**: For fine-tuning the BERT model.
+2. **scikit-learn**: For implementing traditional NLP methods, including TF-IDF and SVM.
+3. **PyTorch**: To build and train the BERT classifier.
+4. **pandas** : To read CSV file.
+5. **pickle** : To save the trained model.
+6. **Matplotlib & Seaborn**: For data visualization.
+7. **NLTK**: For text preprocessing such as tokenization, stopword removal, and lemmatization.
 
-### Dataset
+  
+---
+## Dataset
 The dataset contains English-language text data labeled with binary sentiment.
 
 - **Origin Size**: 1,600,000 entries
@@ -70,32 +73,44 @@ This methodology also serves as the step-by-step process I followed in the [note
 - Import using API from kaggle with dataset of : [Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazanova/sentiment140)
 ### II. **Exploration & Dataset Preparation** : 
     - Understanding data characteristics through visualization, descriptive statistics, and text analysis.
-    - Dimensionality Data Reduction : reduce some unimportant feature and for computational resource efficiency and data balance.
-    - Remapping label from 0 for negative and 4 for positive --> into 0 for neagtive and 1 for postive 
+       + The target sentiment distribution is balanced
+       ![image](https://github.com/user-attachments/assets/5c6de5d1-722e-47b7-be27-480c956334dd)
+       + The text length distribution is in a safe range (between 7-348 characters) with an average length of 74 characters 
+       + Data sets are cleaned of null/missing values
+    - Dimensionality Data Reduction : reduce some unimportant feature and for computational resource efficiency and data balance. 
+       + Changed from 160,000,000 data entries to 160,000 entries and cut 5 features into just 2 features, namely "text" and "target"
+    - Remapping label from 0 (negative) and 4 (positive) --> into 0 for neagtive and 1 for postive.
 ### III. Implementation 
 #### 1. **Text Representation and Classification with BERT**:
-    - Fine-tuning a pretrained BERT model on the sentiment dataset.
-    - Input preprocessing: tokenization and attention mask generation.
-    - Data splitting : 80% for training, 10% for testing, 10% for validation. 
+    - Fine-tuning a pretrained BERT-base-cased model on the sentiment dataset.
+    - Input preprocessing: tokenization and attention mask generation using `BertTokenizer` from Hugging Face's `transformers` library.
+    - Data splitting : 80% for training, 10% for testing, 10% for validation.
 ##### **Model classification using BERT**
     - Adding a classification layer for sentiment prediction.
-    - Training the model.
-    - Saving the model for reuse.
+    - Defining a custom classifier:
+    - Using `BertModel` as the backbone for encoding input text.
+    - Adding a dropout layer (0.5) and a dense classification layer with ReLU activation for binary sentiment prediction.
+    - Training the model with cross-entropy loss and optimizer with Adam.
+    - Saving the trained model for reuse.
 ##### **Evaluation**
-    - Evaluation metrics : Accuracy, precision, recall, F1-Score
-    - Testing & Analysis : test with new sentence for analysis
+    - Evaluation metrics : Accuracy, precision, recall, F1-Score.
+    - Testing & Analysis : Testing the model with new sentences for sentiment analysis.
 
 #### 2. **Traditional NLP Methods**:
 ##### Text Cleaning
     - Removing URLs, symbols, stopwords, and applying lemmatization.
 ##### **Word Embedding**
-    - Text vectorization using TF-IDF.
+    - Text vectorization using TF-IDF:
+       - Transforming the text data into numerical vectors using `TfidfVectorizer`.
+       - Separately transforming training and testing datasets.
 ##### **Using SVM for Classification Task** :
-    - Training an SVM classifier with a grid-search optimized linear kernel.
+    - Training an SVM classifier:
+       - Hyperparameter optimization using `GridSearchCV` with `C` values [0.1, 1, 10] and kernel types (`linear`, `rbf`).
+       - Validation using 5-fold cross-validation.
     - Saving the fine-tuned model for reuse.
 ##### **Evaluation**
     - Evaluation metrics : Accuracy, precision, recall, F1-Score
-    - Testing & Analysis : test with new sentence for analysis
+    - Testing & Analysis : Testing the classifier with new sentences for performance analysis.
 ### IV. Analysis
 [Analysis Section](#Analysis)
 ### V. Conclusion
