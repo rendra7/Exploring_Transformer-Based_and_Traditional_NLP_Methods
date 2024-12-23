@@ -6,6 +6,7 @@ Name : Rendra Dwi Prasetyo
 
 NIM  : 2602199960
 
+
 This project presents a comprehensive comparison of sentiment analysis approaches using two distinct methods:
 1. Large Language Model (LLM) approach with **BERT (Bidirectional Encoder Representations from Transformers)**.
 2. A traditional frequency-based model using **TF-IDF** and **Support Vector Machine (SVM)**.
