@@ -14,7 +14,7 @@ The study evaluates the performance of these models on sentiment analysis tasks,
 - [Dataset](#dataset)
 - [Methodology](#methodology)
 - [Results](#Performance-Results)
-- [Results](#Analysis)
+- [Analysis](#Analysis)
 - [Conclusion](#conclusion)
 
 ---
