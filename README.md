@@ -1,13 +1,13 @@
 # Exploring LLM Capabilities in Sentiment Analysis: BERT vs TF-IDF + SVM
 
+### Project By : 
+Rendra Dwi Prasetyo
+
 This project presents a comprehensive comparison of sentiment analysis approaches using two distinct methods:
 1. Large language Model (LLM) approach with **BERT**.
 2. Traditional model or Frequency-based approach with **TF-IDF** and **Support Vector Machine (SVM)**.
 
 The study evaluates the performance of these models on sentiment analysis tasks, specifically focusing on Twitter comments. The results demonstrate the strengths and weaknesses of each approach in terms of accuracy, precision, recall, and F1-score.
-
-### Project By : 
-Rendra Dwi Prasetyo
 
 ---
 
