@@ -1,4 +1,3 @@
-# LLM-BERT
 # Exploring LLM Capabilities in Sentiment Analysis: BERT vs TF-IDF + SVM
 
 This project presents a comprehensive comparison of sentiment analysis approaches using two distinct methods:
@@ -7,6 +6,8 @@ This project presents a comprehensive comparison of sentiment analysis approache
 
 The study evaluates the performance of these models on sentiment analysis tasks, specifically focusing on Twitter comments. The results demonstrate the strengths and weaknesses of each approach in terms of accuracy, precision, recall, and F1-score.
 
+### Project By :
+Rendra Dwi Prasetyo
 ---
 
 ## Table of Contents
@@ -115,6 +116,5 @@ Source: [Kaggle Sentiment Analysis Dataset](https://www.kaggle.com/datasets/kaza
 ### Overall Comparison:
 BERT outperforms traditional methods on tricky examples but requires more computational resources.
 
-# Project By :
-Rendra Dwi Prasetyo
+
 
