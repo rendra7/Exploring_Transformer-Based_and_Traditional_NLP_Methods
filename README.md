@@ -56,9 +56,9 @@ Source: [Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazan
 ---
 
 ## Methodology
-This methodology also serves as the step-by-step process I followed in the notebook.ipynb file.
+This methodology also serves as the step-by-step process I followed in the [notebook.ipynb](https://github.com/rendra7/LLM-BERT/blob/main/Modelling_BERT_Rendra.ipynb) file.
 ### I. **Import Dataset**
-     [Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazanova/sentiment140)
+[Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazanova/sentiment140)
 ### II. **Exploration & Dataset Preparation** : 
     - Understanding data characteristics through visualization, descriptive statistics, and text analysis.
     - Dimensionality Data Reduction : reduce some unimportant feature and for computational resource efficiency and data balance.
@@ -88,7 +88,9 @@ This methodology also serves as the step-by-step process I followed in the noteb
     - Evaluation metrics : Accuracy, precision, recall, F1-Score
     - Testing & Analysis : test with new sentence for analysis
 ### IV. Analysis
+[Analysis Section](#Analysis)
 ### V. Conclusion
+[Conclusion Section](#Conclusion)
 
 ---
 
