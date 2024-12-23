@@ -72,11 +72,11 @@ This methodology also serves as the step-by-step process I followed in the [note
 ### I. **Import Dataset**
 - Import using API from kaggle with dataset of : [Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazanova/sentiment140)
 ### II. **Exploration & Dataset Preparation** : 
+    
+  ![images](https://github.com/user-attachments/assets/c63690e0-d647-4841-9459-dc6c9512a3e5)             ![images 2](https://github.com/user-attachments/assets/962c4fdb-28d3-4c04-9b69-e8d44e8d83fe)
+
+
     - Understanding data characteristics through visualization, descriptive statistics, and text analysis.
-  ![images](https://github.com/user-attachments/assets/c63690e0-d647-4841-9459-dc6c9512a3e5)       ![images 2](https://github.com/user-attachments/assets/962c4fdb-28d3-4c04-9b69-e8d44e8d83fe)
-
-
-
        + The target sentiment distribution is balanced
        + The text length distribution is in a safe range (between 7-348 characters) with an average length of 74 characters 
        + Data sets are cleaned of null/missing values
