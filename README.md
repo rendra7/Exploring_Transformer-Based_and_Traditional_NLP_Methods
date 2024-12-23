@@ -38,8 +38,12 @@ The study evaluates the performance of these models on sentiment analysis tasks,
 ---
 
 ## Dataset
-The dataset contains English-language text data labeled with binary sentiment (0 = Negative, 1 = Positive).
+The dataset contains English-language text data labeled with binary sentiment.
 
+- **Origin Size**: 1,600,000 entries
+- **Total Features** : 5
+
+**After Reduction**
 - **Sample Size**: 160,000 entries.
 - **Features**:
   - `text`: User-generated text data.
@@ -50,16 +54,28 @@ Source: [Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazan
 ---
 
 ## Methodology
-### 1. **BERT-based Model**:
+### 1. **Import Dataset**
+### 2. **Explore Dataset** : 
+    - The process of understanding data characteristics through visualization, descriptive statistics, and text analysis.analysis.
+### 3. **Preparation** : 
+    - Dimensionality reduction
+    - Data Reduction
+    
+### 4. **BERT-based Model**:
     - Fine-tuning a pretrained BERT model on the sentiment dataset.
     - Input preprocessing: tokenization and attention mask generation.
     - Adding a classification layer for sentiment prediction.
-    - Saving the fine-tuned model for reuse.
+    - Saving the model for reuse.
+    - Evaluation metrics : Accuracy, precision, recall, F1-Score
+    - Testing & Analysis : test with new sentence for analysis
 
-### 2. **TF-IDF + SVM**:
+### 5. **TF-IDF + SVM**:
     - Preprocessing: Removing URLs, symbols, stopwords, and applying lemmatization.
     - Text vectorization using TF-IDF.
     - Training an SVM classifier with a grid-search optimized linear kernel.
+    - Saving the fine-tuned model for reuse.
+    - Evaluation metrics : Accuracy, precision, recall, F1-Score
+    - Testing & Analysis : test with new sentence for analysis
 
 ---
 
