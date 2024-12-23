@@ -27,8 +27,8 @@
 
 ### Objectives:
 1. Compare the performance of **BERT** with **TF-IDF** + **SVM** on sentiment analysis tasks.
-2. Highlight the trade-offs between accuracy and computational resources for each approach.
-3. Highlight model behavior on nuanced examples
+2. Highlight the trade-offs between accuracy, precision, recall, and F1-score for each approach.
+3. Highlight model behavior on nuanced/contextual text.
 
 ---
 
@@ -117,7 +117,7 @@ This methodology also serves as the step-by-step process I followed in the [note
 
 ---
 
-## Performance Results
+## Evaluation Metric Result
 | Model          | Accuracy | Precision | Recall | F1-Score |
 |----------------|----------|-----------|--------|----------|
 | BERT           | 83%      | 83%       | 83%    | 83%      |
@@ -150,13 +150,24 @@ To strengthen the justification for the evaluation results, I tested several sam
 ---
 
 ## Conclusion 
-### Results and Insights
+### Strengths of Each Approach:
 #### BERT:
-- Captures context and nuances in text, making it more robust for handling complex and subtle statements.
-- Better suited for datasets with subtle sentiment cues and intricate contextual relationships.
+1. Captures context and nuances in text, making it more robust for handling complex and subtle statements.
+2. Better suited for datasets with subtle sentiment cues and intricate contextual relationships.
 #### TF-IDF + SVM:
-- Simpler to train and computationally less intensive.
-- Effective for datasets with clear and straightforward sentiment patterns, but may struggle with nuanced or complex examples.
+1. Simpler to train and computationally less intensive.
+2. Effective for datasets with clear and straightforward sentiment patterns.
+
+### Limitations:
+#### BERT:
+- Requires high computational resources, including GPU support, making it less ideal for resource-constrained environments.
+#### TF-IDF + SVM:
+- Struggles with complex or nuanced text, as it relies on word frequency without deeper contextual understanding.
+
+### Recommendations:
+- Use **BERT** for complex datasets with ambiguous or nuanced sentiment (e.g., social media posts).
+- Use **TF-IDF + SVM** for simpler datasets where computational efficiency is prioritized.
+
 ### Overall Comparison:
 **BERT** outperforms traditional methods like TF-IDF + SVM, especially on tricky examples where context and nuance matter. However, it requires more computational resources and may not always be the best choice for simpler datasets.
 
