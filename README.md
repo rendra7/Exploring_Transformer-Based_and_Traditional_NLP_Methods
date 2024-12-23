@@ -43,7 +43,8 @@ The dataset contains English-language text data labeled with binary sentiment.
 - **Origin Size**: 1,600,000 entries
 - **Total Features** : 5
 
-**After Reduction**
+
+**After Reduction :**
 - **Sample Size**: 160,000 entries.
 - **Features**:
   - `text`: User-generated text data.
@@ -55,6 +56,7 @@ Source: [Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazan
 
 ## Methodology
 ### 1. **Import Dataset**
+    - [Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazanova/sentiment140)
 ### 2. **Explore Dataset** : 
     - The process of understanding data characteristics through visualization, descriptive statistics, and text analysis.analysis.
 ### 3. **Preparation** : 
