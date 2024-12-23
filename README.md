@@ -3,17 +3,9 @@
 
 #### Project By : Rendra Dwi Prasetyo
 
-.
-
-This project presents a comprehensive comparison of sentiment analysis approaches using two distinct methods:
-1. **Transformer-Based** approach with **BERT (Bidirectional Encoder Representations from Transformers)**.
-2. **Traditional NLP Methods** using **TF-IDF** and **Support Vector Machine (SVM)**.
-
-The study evaluates the performance of these models on sentiment analysis tasks, specifically focusing on Twitter comments. The results demonstrate the strengths and weaknesses of each approach in terms of accuracy, precision, recall, and F1-score.
-
 ---
 
-## README Contents 
+## Documentation Contents 
 - [Project Overview](#project-overview)
 - [Dataset](#dataset)
 - [Methodology](#methodology)
@@ -25,12 +17,15 @@ The study evaluates the performance of these models on sentiment analysis tasks,
 
 ## Project Overview
 ### Key Features:
-- **BERT**: A transformer-based, bidirectional pretrained language model designed to understand context and semantic relationships in text by learning deep representations through tasks like Masked Language Modeling (MLM) and Next Sentence Prediction (NSP)
-- **TF-IDF + SVM**: A traditional machine learning pipeline where TF-IDF converts text into numerical vectors by weighting terms based on their frequency and importance across documents, and SVM classifies these vectors by finding an optimal hyperplane that separates different sentiment classes.
-- Preprocessing steps like tokenization, stopword removal, and lemmatization.
-- Comparison of both models on tricky examples to assess their handling of subtle contextual differences.
+1. **Transformer-Based** approach with **BERT (Bidirectional Encoder Representations from Transformers)**.
+   - **BERT**: A  bidirectional pretrained language model designed to understand context and semantic relationships in text by learning deep representations through tasks like Masked Language Modeling (MLM) and Next Sentence Prediction (NSP)
+2. **Traditional NLP Methods** using **TF-IDF** and **Support Vector Machine (SVM)**.
+   - **TF-IDF + SVM**: A traditional machine learning pipeline where TF-IDF converts text into numerical vectors by weighting terms based on their frequency and importance across documents, and SVM classifies these vectors by finding an optimal hyperplane that separates different sentiment classes.
+3. Preprocessing steps like tokenization, stopword removal, and lemmatization.
+4. Comparison of both models on tricky examples to assess their handling of subtle contextual differences.
 
-  
+
+
 ### Objectives:
 1. Compare the performance of **BERT** with **TF-IDF** + **SVM** on sentiment analysis tasks.
 2. Highlight the trade-offs between accuracy and computational resources for each approach.
