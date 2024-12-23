@@ -1,7 +1,8 @@
-# Exploring LLM Capabilities in Sentiment Analysis: BERT vs TF-IDF + SVM
-
-### Project By : 
+## Project By : 
 Rendra Dwi Prasetyo
+
+---
+# Exploring LLM Capabilities in Sentiment Analysis: BERT vs TF-IDF + SVM
 
 This project presents a comprehensive comparison of sentiment analysis approaches using two distinct methods:
 1. Large language Model (LLM) approach with **BERT**.
