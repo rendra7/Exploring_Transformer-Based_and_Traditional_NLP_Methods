@@ -55,29 +55,39 @@ Source: [Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazan
 ---
 
 ## Methodology
-### 1. **Import Dataset**
-    - [Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazanova/sentiment140)
-### 2. **Explore Dataset** : 
-    - The process of understanding data characteristics through visualization, descriptive statistics, and text analysis.analysis.
-### 3. **Preparation** : 
-    - Dimensionality reduction
-    - Data Reduction
+This methodology also serves as the step-by-step process I followed in the notebook.ipynb file.
+### I. **Import Dataset**
+     [Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazanova/sentiment140)
+### II. **Exploration & Dataset Preparation** : 
+    - Understanding data characteristics through visualization, descriptive statistics, and text analysis.
+    - Dimensionality Data Reduction : reduce some unimportant feature and for computational resource efficiency and data balance.
     
-### 4. **BERT-based Model**:
+### III. Implementation 
+#### 1. **Text Representation and Classification with BERT**:
     - Fine-tuning a pretrained BERT model on the sentiment dataset.
     - Input preprocessing: tokenization and attention mask generation.
+    - Data splitting : 80% for training, 10% for testing, 10% for validation. 
+##### **Model classification using BERT**
     - Adding a classification layer for sentiment prediction.
+    - Training the model.
     - Saving the model for reuse.
+##### **Evaluation**
     - Evaluation metrics : Accuracy, precision, recall, F1-Score
     - Testing & Analysis : test with new sentence for analysis
 
-### 5. **TF-IDF + SVM**:
-    - Preprocessing: Removing URLs, symbols, stopwords, and applying lemmatization.
+#### 2. **Traditional NLP Methods**:
+##### Text Cleaning
+    - Removing URLs, symbols, stopwords, and applying lemmatization.
+##### **Word Embedding**
     - Text vectorization using TF-IDF.
+##### **Using SVM for Classification Task** :
     - Training an SVM classifier with a grid-search optimized linear kernel.
     - Saving the fine-tuned model for reuse.
+##### **Evaluation**
     - Evaluation metrics : Accuracy, precision, recall, F1-Score
     - Testing & Analysis : test with new sentence for analysis
+### IV. Analysis
+### V. Conclusion
 
 ---
 
