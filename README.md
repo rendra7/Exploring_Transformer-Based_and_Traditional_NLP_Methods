@@ -7,6 +7,7 @@
 
 ## Documentation Contents 
 - [Project Overview](#project-overview)
+- [Resources](#Resources)
 - [Dataset](#dataset)
 - [Methodology](#methodology)
 - [Results](#Performance-Results)
@@ -24,8 +25,6 @@
 3. Preprocessing steps like tokenization, stopword removal, and lemmatization.
 4. Comparison of both models on tricky examples to assess their handling of subtle contextual differences.
 
-
-
 ### Objectives:
 1. Compare the performance of **BERT** with **TF-IDF** + **SVM** on sentiment analysis tasks.
 2. Highlight the trade-offs between accuracy and computational resources for each approach.
@@ -33,20 +32,34 @@
 
 ---
 
-## Dataset
+## Resources
+This project leverages the following resources:
+
+**Development Environment**:
+
+**Google Colab**: The notebook was developed and executed using Google Colab, a cloud-based platform for Python programming.
+**Python Version**: Python 3.10.12 was used for all scripts and implementations.
+Hardware:
+
+**GPU**: NVIDIA T4 Tensor Core GPU provided by Google Colab. This GPU accelerates training and inference tasks, especially for deep learning models like BERT.
+Libraries and Frameworks:
+**System RAM** : 51.0 GB (maximum capacity)
+**VRAM** : 15.0 GB (maximum capacity)
+**Disk** : 235.7 GB (maximum capacity)
+
+- **Transformers (Hugging Face)**: For fine-tuning the BERT model.
+- **scikit-learn**: For implementing traditional NLP methods, including TF-IDF and SVM.
+- **PyTorch**: To build and train the BERT classifier.
+- **Matplotlib & Seaborn**: For data visualization.
+- **NLTK**: For text preprocessing such as tokenization, stopword removal, and lemmatization.
+- 
+
+### Dataset
 The dataset contains English-language text data labeled with binary sentiment.
 
 - **Origin Size**: 1,600,000 entries
 - **Total Features** : 5
-
-
-**After Preprocessing :**
-*Reduce some unimportant feature and for computational resource efficiency and data balance.
-- **Sample Size**: 160,000 entries.
-- **Features**:
-  - `text`: User-generated text data.
-  - `target`: Binary sentiment labels (0 = Negative, 1 = Positive).
-
+  
 Source: [Sentiment140 Dataset from Kaggle](https://www.kaggle.com/datasets/kazanova/sentiment140)
 
 ---
@@ -58,7 +71,7 @@ This methodology also serves as the step-by-step process I followed in the [note
 ### II. **Exploration & Dataset Preparation** : 
     - Understanding data characteristics through visualization, descriptive statistics, and text analysis.
     - Dimensionality Data Reduction : reduce some unimportant feature and for computational resource efficiency and data balance.
-    
+    - Remapping label from 0 for negative and 4 for positive --> into 0 for neagtive and 1 for postive 
 ### III. Implementation 
 #### 1. **Text Representation and Classification with BERT**:
     - Fine-tuning a pretrained BERT model on the sentiment dataset.
@@ -109,7 +122,7 @@ To strengthen the justification for the results I obtained, I tested with severa
 | This is a great product! | Positive | Positive |
 | I'm really great disappointed with this product. | Negative | Negative |
 | The service was amazing; I’m so satisfied and will definitely come back. | Positive | Positive |
-| The ticket prices are amazing—amazingly expensive. | Negative | Positif |
+| The ticket prices are amazing—amazingly expensive. | Negative | Positive |
 
 ### Key Difference in Example Prediction:
 - **BERT** successfully captures subtle contextual meanings, such as interpreting "amazingly expensive" as negative, showing its deeper understanding of text context.
