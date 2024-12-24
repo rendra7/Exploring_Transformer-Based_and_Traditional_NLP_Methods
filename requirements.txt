@@ -1,9 +1,6 @@
+streamlit
 transformers
 torch
-numpy
-pandas
 scikit-learn
-nltk
-matplotlib
-seaborn
-pickle
+numpy
+joblib
