@@ -6,4 +6,4 @@ scikit-learn
 nltk
 matplotlib
 seaborn
-pickle5
+pickle
